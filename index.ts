@@ -51,7 +51,30 @@ async function main() {
   //   },
   // })
 
-  console.log(users)
+  // Create another article
+  // const article = await prisma.article.create({
+  //   data: {
+  //     title: 'sample article',
+  //     body: 'This is sample article',
+  //     author: {
+  //       connect: {
+  //         id: 2,
+  //       },
+  //     },
+  //   },
+  // })
+
+  // Loop over users and their articles
+  users.forEach((user) => {
+    console.log(`User: ${user.name}, Email: ${user.email}`)
+    console.log('Articles:')
+    user.articles.forEach((article) => {
+      console.log(`- Title: ${article.title}, Body: ${article.body}`)
+    })
+    console.log('\n')
+  })
+
+  // console.log(articles)
 }
 
 main()
